@@ -1,6 +1,6 @@
 // Initialize Gemini API configuration
-const GEMINI_API_KEY = "API HEre";
-const GEMINI_API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent";
+const GEMINI_API_KEY = "KEY";
+const GEMINI_API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent";
 
 async function generateNotes(subject, topic, semester) {
     try {
@@ -62,22 +62,55 @@ async function handleSearch(e) {
     const resultsSection = document.getElementById('searchResults');
     const resultText = document.getElementById('resultText');
     resultsSection.classList.remove('hidden');
-    resultText.textContent = 'Generating notes...';
+    resultText.innerHTML = '<div class="loading">Generating notes...</div>';
     
     try {
-        // Generate notes using Gemini API
         const notes = await generateNotes(
             selections.subject,
             selections.topic,
             selections.semester
         );
         
-        // Display the generated notes
-        resultText.textContent = notes;
+        // Format and display the notes with better styling
+        const formattedNotes = notes
+            .split('\n\n')
+            .map(paragraph => `<p>${paragraph}</p>`)
+            .join('')
+            .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+            .replace(/\d\.\s/g, '<br><strong>$&</strong>')
+            .replace(/•\s/g, '<br>• ');
+
+        resultText.innerHTML = `
+            <div class="notes-container" id="notesContent">
+                <div class="notes-header">
+                    <h2>${selections.subject} - ${selections.topic}</h2>
+                    <button onclick="downloadPDF()" class="download-btn">Download PDF</button>
+                </div>
+                <div class="notes-content">
+                    ${formattedNotes}
+                </div>
+            </div>
+        `;
     } catch (error) {
-        resultText.textContent = 'Failed to generate notes. Please try again.';
+        resultText.innerHTML = '<div class="error">Failed to generate notes. Please try again.</div>';
         console.error('Error:', error);
     }
+}
+
+// Add the download function
+function downloadPDF() {
+    const element = document.getElementById('notesContent');
+    const filename = 'academic-notes.pdf';
+    
+    const opt = {
+        margin: 1,
+        filename: filename,
+        image: { type: 'jpeg', quality: 0.98 },
+        html2canvas: { scale: 2 },
+        jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+    };
+
+    html2pdf().set(opt).from(element).save();
 }
 
 // Add event listener when the DOM is fully loaded

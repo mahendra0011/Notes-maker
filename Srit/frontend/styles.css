@@ -1,0 +1,179 @@
+.notes-container {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 30px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.notes-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #e9ecef;
+}
+
+.notes-content {
+    line-height: 1.8;
+    color: #2c3e50;
+    font-size: 16px;
+}
+
+/* Improve list formatting */
+.notes-content ul, 
+.notes-content ol {
+    margin: 15px 0;
+    padding-left: 25px;
+}
+
+.notes-content li {
+    margin-bottom: 10px;
+}
+
+/* Better formatting for comparison sections */
+.notes-content .comparison-table {
+    width: 100%;
+    border: 1px solid #ddd;
+    margin: 20px 0;
+    border-radius: 4px;
+}
+
+/* Section headings */
+.notes-content h3, 
+.notes-content h4 {
+    color: #1a237e;
+    font-size: 20px;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #e9ecef;
+    padding-bottom: 8px;
+}
+
+/* Feature lists */
+.notes-content .feature-list {
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 4px;
+    margin: 10px 0;
+}
+
+/* Definition terms */
+.notes-content dt {
+    font-weight: bold;
+    color: #1a237e;
+    margin-top: 15px;
+}
+
+.notes-content dd {
+    margin-left: 20px;
+    margin-bottom: 10px;
+}
+
+/* Bullet points with asterisk */
+.notes-content .bullet-point {
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 10px;
+}
+
+.notes-content .bullet-point::before {
+    content: '*';
+    position: absolute;
+    left: 5px;
+    color: #1a237e;
+}
+
+/* Advantages/Disadvantages sections */
+.notes-content .advantages,
+.notes-content .disadvantages {
+    background: #fff;
+    padding: 15px;
+    margin: 10px 0;
+    border-left: 4px solid;
+    border-radius: 4px;
+}
+
+.notes-content .advantages {
+    border-left-color: #4CAF50;
+}
+
+.notes-content .disadvantages {
+    border-left-color: #f44336;
+}
+
+.notes-content h1, 
+.notes-content h2, 
+.notes-content h3 {
+    margin-top: 30px;
+    margin-bottom: 15px;
+    color: #1a237e;
+    font-weight: bold;
+}
+
+.notes-content h1 { font-size: 28px; }
+.notes-content h2 { font-size: 24px; }
+.notes-content h3 { font-size: 20px; }
+
+.notes-content p {
+    margin-bottom: 20px;
+}
+
+.notes-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 25px 0;
+    background-color: white;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.notes-content th,
+.notes-content td {
+    padding: 12px 15px;
+    text-align: left;
+    border: 1px solid #e0e0e0;
+}
+
+.notes-content th {
+    background-color: #f5f5f5;
+    color: #1a237e;
+    font-weight: bold;
+}
+
+.notes-content tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.notes-content strong {
+    color: #1a237e;
+    font-weight: 600;
+}
+
+.download-btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.download-btn:hover {
+    background-color: #45a049;
+}
+
+.loading {
+    text-align: center;
+    color: #666;
+    padding: 20px;
+}
+
+.error {
+    color: #dc3545;
+    text-align: center;
+    padding: 20px;
+}
