@@ -1,5 +1,5 @@
 // Initialize Gemini API configuration
-const GEMINI_API_KEY = "AIzaSyBsbOMLrPD7UOz4HvQsWKEoBLvmlZhy4XU";
+const GEMINI_API_KEY = "API HEre";
 const GEMINI_API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent";
 
 async function generateNotes(subject, topic, semester) {
